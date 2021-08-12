@@ -1,0 +1,6 @@
+Sistema solar
+8 planetas,sol
+iluminación
+anchor
+fondo estrellado
+

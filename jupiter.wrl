@@ -1,0 +1,123 @@
+#VRML V2.0 utf8
+DEF tr Transform{ # jupiter
+	translation 50 0 -15
+	rotation 0 0 0 0
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["jupiter.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 3.2
+				}
+			}
+			url"https://www.astromia.com/solar/jupiter.htm"
+			description "Jupiter"
+		}
+DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 7
+			loop TRUE
+		}
+	DEF ci PositionInterpolator {
+			key [ 0 0.25 0.5 0.75 1 ]
+			keyValue [ 5 0 0, 0 0 -5, -5 0 0, 0 0 5, 5 0 0]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 4
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+Transform{ # luna ganimedes
+	translation 53 4 -15
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["ganimedeslunaj.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.30
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Ganimedes_(satélite)"
+			description "Ganimedes"
+		}
+	]
+}
+Transform{ # luna Calisto
+	translation 50 -5 -15
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["Calisto.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Calisto_(satélite)"
+			description "Calisto"
+		}
+	]
+}
+Transform{ # luna Io
+	translation 53 3 -15
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["Io.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.22
+				}
+			}
+			url"http://solarviews.com/span/io.htm"
+			description "Io"
+		}
+	]
+}
+Transform{ # luna Europa
+	translation 53 3.5 -12
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["europa.png"]
+					}
+				}
+				geometry Sphere{
+					radius 0.22
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Europa_(satélite)"
+			description "Europa"
+		}
+	]
+}

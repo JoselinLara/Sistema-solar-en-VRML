@@ -1,0 +1,78 @@
+#VRML V2.0 utf8
+Transform{ # Urano anillo
+	translation 0 0 3
+	rotation 1 0 0 -0.785
+	children[
+		Shape{
+			appearance Appearance{
+				texture ImageTexture{ 
+					url["neptunoanillos.jpg"]
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 2.5
+			}
+				
+		}
+	]
+}
+Transform{ # Urano anillo negro
+	translation 0 0.002 3
+	rotation 1 0 0 0.785
+	children[
+		Shape{
+			appearance Appearance{
+				material Material{ 
+					diffuseColor 0 0 0
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 0.5
+			}
+				
+		}
+	]
+}
+Transform{ # neptuno
+	translation 0 0 3
+	rotation 0 0 0 0
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["neptuno.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 1.6
+				}
+			}
+			url"https://www.astromia.com/solar/neptuno.htm"
+			description "Neptuno"			
+		}
+		
+	]
+}
+Transform{ # luna Tritón
+	translation 0 -2 5
+	rotation 0 1 0 -0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["triton.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Tritón_(satélite)"
+			description "Tritón"
+		}
+	]
+}

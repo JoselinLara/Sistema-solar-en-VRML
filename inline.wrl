@@ -1,0 +1,28 @@
+#VRML V2.0 utf8
+Transform{
+	translation -5 0 0
+	children[
+		Anchor{
+			children Shape{
+			geometry Cylinder{ height 3 radius 1}
+				appearance Appearance{
+					material Material{
+						diffuseColor 0.8 0.5 0
+						emissiveColor 0.8 0.5 0
+					}
+				}
+				
+			}
+			url"https://www.astromia.com/solar/tierra.htm"
+			description "Tierra"
+		}
+	]
+}
+Transform{
+	translation 5 0 0
+	children[
+		Inline{
+			url "neptuno.wrl"
+		}
+	]
+}

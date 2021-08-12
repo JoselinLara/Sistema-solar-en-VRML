@@ -1,0 +1,124 @@
+#VRML V2.0 utf8
+ 
+DEF tr Transform{ # Neptuno anillo
+	translation 80 0 0
+	rotation 0 1 0 0.4943 #28.32
+	children[
+		Shape{
+			appearance Appearance{
+				texture ImageTexture{ 
+					url["neptunoanillos.jpg"]
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 2.5
+			}
+				
+		}
+	  DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 80,76 0 76, 82 0 0, 76 0 -76 ,0 0 -76, -76 0 -76,-82 0 0,-76 0 76, 0 0 80]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 200
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # neptuno
+	translation 80 0 0
+	rotation 0 1 0 0.4943 #28.32
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["neptuno.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 1.6
+				}
+			}
+			url"https://www.astromia.com/solar/neptuno.htm"
+			description "Neptuno"			
+		}
+	 DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 80,76 0 76, 82 0 0, 76 0 -76 ,0 0 -76, -76 0 -76,-82 0 0,-76 0 76, 0 0 80]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 200
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # luna Tritón
+	translation 80 -2 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["triton.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Tritón_(satélite)"
+			description "Tritón"
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 -2 80,76 -2 76, 82 -2 0, 76 -2 -76 ,0 -2 -76, -76 -2 -76,-82 -2 0,-76 -2 76, 0 -2 80]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 200
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation

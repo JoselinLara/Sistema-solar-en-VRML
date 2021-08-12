@@ -1,0 +1,97 @@
+#VRML V2.0 utf8
+Transform{ # Urano anillo
+	translation 70 0 0
+	rotation 1 0 0 0.785
+	children[
+		Shape{
+			appearance Appearance{
+				texture ImageTexture{ 
+					url["uranoanillos.jpg"]
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 3
+			}
+				
+		}
+	]
+}
+Transform{ # Urano anillo negro
+	translation 70 0.002 0
+	rotation 1 0 0 0.785
+	children[
+		Shape{
+			appearance Appearance{
+				material Material{ 
+					diffuseColor 0 0 0
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 1.5
+			}
+				
+		}
+	]
+}
+Transform{ # urano
+	translation 70 0 0
+	rotation 0 0 0 0
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["urano.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 1.8
+				}
+			}
+			url"https://www.astromia.com/solar/urano.htm"
+			description "Urano"
+		}	
+	]
+}
+Transform{ # luna titania
+	translation 70 3 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["titania.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.30
+				}
+			}
+			url"http://www.astronoo.com/es/titania.html"
+			description "Titania"
+		}
+	]
+}
+Transform{ # luna oberon
+	translation 71.2 -2.5 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["oberon.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Oberón_(satélite)"
+			description "Oberón"
+		}
+	]
+}

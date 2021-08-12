@@ -1,0 +1,1111 @@
+#VRML V2.0 utf8
+
+Background {
+	frontUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	backUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	topUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	bottomUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	rightUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	leftUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+}
+DEF tr Transform { # sol
+translation 0 0 -3
+rotation 0 0 0 0
+children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["sol.jpg"]
+					}
+				}
+				geometry Sphere{
+				radius 9
+				}
+						
+			}
+			url"https://www.astromia.com/solar/sol.htm"
+			description "Sol"
+		}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 25
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+DEF tr Transform { # mercurio
+	translation 25 0 0
+	rotation 0 1 0 0.0175 # 0.1°
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{
+					url["mercurio.jpg"]
+				}
+			}
+			geometry Sphere{
+				radius 0.6
+			}
+			}
+			url"https://www.astromia.com/solar/mercurio.htm"
+			description "Mercurio"
+			}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 5
+			loop TRUE
+		}
+	DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 26, 24 0.5 24, 30 1 0, 24 0.5 -24 ,0 0 -26, -24 -0.5 -24,-30 -1 0,-24 -0.5 24, 0 0 26]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # venus
+	translation 31 0 1  
+	rotation 0 1 0 3.0892 #177°
+	children[
+		Anchor{
+			children Shape{
+					appearance Appearance{
+						texture ImageTexture{ 
+							url["Venus-backgrounds-4k.jpg"]
+						}
+					}
+					geometry Sphere{
+						radius 1.2
+					}
+				
+				}
+			
+			url"https://www.astromia.com/solar/mercurio.htm"
+			description "Venus"
+		}
+			DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 10
+			loop TRUE
+		}
+	DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 31, 29 0.5 29, 35 1 0, 29 0.5 -29 ,0 0 -31, -29 -0.5 -29,-35 -1 0,-29 -0.5 29, 0 0 31]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 20
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{#tierra
+	translation 40 0 -3
+	rotation 0 1 0 0.4014 #23°
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["tierra.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 1.45
+				}
+			}
+			url"https://www.astromia.com/solar/tierra.htm"
+			description "Tierra"
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 40, 38 0.5 38, 44 1 0, 38 0.5 -38 ,0 0 -40, -38 -0.5 -38,-44 -1 0,-38 -0.5 38, 0 0 40]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 30
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # luna celeste
+	translation 42 1 -3
+	rotation 0 1 0 1.5411 #88.3° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["luna.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.15
+				}
+			}
+			url"https://www.astromia.com/solar/luna.htm"
+			description "Luna"
+		}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 10
+			loop TRUE
+		}
+	 DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 42, 40 1 40, 46 1.5 0, 40 1 -40 ,0 0 -42, -40 -1 -40,-46 -1.5 0,-40 -1 40, 0 0 42]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 30
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{# marte
+	translation 47 0 -6
+	rotation 0 1 0 0.4396 #25.19
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["marte.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 1.2
+				}
+			}
+			url"https://www.astromia.com/solar/marte.htm"
+			description "Marte"
+		}
+		
+	DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 47, 40 0 40, 51 0 0, 40 0 -40 ,0 0 -47, -40 0 -40,-51 0 0,-40 0 40, 0 0 47]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 40
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # luna Fobos
+	translation 47 2 -6
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["fobos.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Fobos_(satélite)"
+			description "Fobos"
+		}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			
+			keyValue [ 0 2 47, 40 2.5 40, 51 2.5 0, 40 2.5 -40 ,0 2 -47, -40 2.5 -40,-51 2.5 0,-40 2.5 40, 0 2 47]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 40
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # jupiter
+	translation 55 0 0
+	rotation 0 1 0 0.0546 #3.13°
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["jupiter.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 3.2
+				}
+			}
+			url"https://www.astromia.com/solar/jupiter.htm"
+			description "Jupiter"
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 5
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 55, 51 0 51, 61 0 0, 51 0 -51 ,0 0 -55, -51 0 -51,-61 0 0,-51 0 51, 0 0 55]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 60
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # luna ganimedes
+	translation 55 4 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["ganimedeslunaj.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.30
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Ganimedes_(satélite)"
+			description "Ganimedes"
+		}
+	DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 4 55, 54 4.1 54, 57 4.3 0, 54 4.1 -54 ,0 4 -55, -54 4.1 -54,-57 4.3 0,-54 4.1 54, 0 4 55]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 60
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # luna Calisto
+	translation 55 -4 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["Callisto.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Calisto_(satélite)"
+			description "Calisto"
+		}
+	DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 -4 52, 50 -4.1 50, 54 -4.3 0, 50 -4.1 -50 ,0 -4 -52, -50 -4.1 -50,-54 -4.3 0,-50 -4.1 50, 0 -4 52]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 60
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # luna Io
+	translation 56 3 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["Io.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.22
+				}
+			}
+			url"http://solarviews.com/span/io.htm"
+			description "Io"
+		}
+	DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 3 56, 55 3.1 55, 57 3.5 0, 55 3.5 -55 ,0 3 -56, -55 3.1 -55,-57 3.5 0,-56 3.1 56, 0 3 56]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 60
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # luna Europa
+	translation 55 3.5 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["europa.png"]
+					}
+				}
+				geometry Sphere{
+					radius 0.22
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Europa_(satélite)"
+			description "Europa"
+		}
+	DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 4 55, 51 4 51, 61 4.5 0, 51 4 -51 ,0 4 -55, -51 4 -51,-61 4.5 0,-51 4 51, 0 4 55]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 60
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # Saturno anillo
+	translation 65 0 0
+	rotation 0 1 0 0.4665 #26.73
+	children[
+		Shape{
+			appearance Appearance{
+				texture ImageTexture{ 
+					url["anillo.jpg"]
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 4
+			}
+		}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 65,63 0 63, 67 0 0, 63 0 -63 ,0 0 -65, -63 0 -63,-67 0 0,-63 0 63, 0 0 65]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 90
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # Saturno anillo negro
+	translation 65 0.002 0
+	rotation 0 1 0 0.4665 #26.73
+	children[
+		Shape{
+			appearance Appearance{
+				material Material{ 
+					diffuseColor 0 0 0
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 2.5
+			}
+		}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0.002 65,63 0.002 63, 67 0.002 0, 63 0.002 -63 ,0 0.002 -65, -63 0.002 -63,-67 0.002 0,-63 0.002 63, 0 0.002 65]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 90
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # saturno
+	translation 65 0 0
+	rotation 0 1 0 0.4665 #26.73
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["saturno.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 2.3
+				}
+				
+			}
+			url"https://www.astromia.com/solar/saturno.htm"
+			description "Saturno"
+		}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 7
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 65,63 0 63, 67 0 0, 63 0 -63 ,0 0 -65, -63 0 -63,-67 0 0,-63 0 63, 0 0 65]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 90
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # luna Titan
+	translation 66.2 3 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["titan.png"]
+					}
+				}
+				geometry Sphere{
+					radius 0.30
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Titán_(satélite)"
+			description "Titán"
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 15
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 3 66.2,64 3 64, 69 3 0, 64 3 -64 ,0 3 -66.2, -64 3 -64,-69 3 0,-64 3 64, 0 3 66.2]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 90
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # luna Iapetus
+	translation 67 -3.5 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["iapetus.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Jápeto_(satélite)"
+			description "Iapetus"
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 7
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 -3.5 67,65 -3.5 65, 69 -3.5 0, 65 -3.5 -65 ,0 -3.5 -67, -65 -3.5 -65,-69 -3.5 0,-65 -3.5 65, 0 -3.5 67]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 90
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # luna Pandora
+	translation 67 1.5 0
+	rotation 1 0 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["pandora.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Pandora_(satélite)"
+			description "Pandora"
+		}
+	   DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 7
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 1.5 67,65 1.5 65, 69 1.5 0, 65 1.5 -65 ,0 1.5 -67, -65 1.5 -65,-69 1.5 0,-65 1.5 65, 0 1.5 67]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 90
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # Urano anillo
+	translation 75 0 0
+	rotation 1 0 0 1.6987 #97.33°
+	children[
+		Shape{
+			appearance Appearance{
+				texture ImageTexture{ 
+					url["uranoanillos.jpg"]
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 3
+			}
+				
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 75,71 0 71, 78 0 0, 71 0 -71 ,0 0 -75, -71 0 -71,-78 0 0,-71 0 71, 0 0 75]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 110
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # Urano anillo negro
+	translation 75 0.002 0
+	rotation 1 0 0 1.6987 #97.33°
+	children[
+		Shape{
+			appearance Appearance{
+				material Material{ 
+					diffuseColor 0 0 0
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 1.5
+			}
+				
+		}
+	DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0.002 75,71 0.002 71, 78 0.002 0, 71 0.002 -71 ,0 0.002 -75, -71 0.002 -71,-78 0.002 0,-71 0.002 71, 0 0.002 75]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 110
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+  DEF tr Transform{ # urano
+	translation 75 0 0
+	rotation 1 0 0 1.6987 #97.33°
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["urano.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 1.8
+				}
+			}
+			url"https://www.astromia.com/solar/urano.htm"
+			description "Urano"
+		}	
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 75,71 0 71, 78 0 0, 71 0 -71 ,0 0 -75, -71 0 -71,-78 0 0,-71 0 71, 0 0 75]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 110
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # luna titania
+	translation 75 3 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["titania.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.30
+				}
+			}
+			url"http://www.astronoo.com/es/titania.html"
+			description "Titania"
+		}
+		DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 3 75,71 3 71, 78 3 0, 71 3 -71 ,0 3 -75, -71 3 -71,-78 3 0,-71 3 71, 0 3 75]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 110
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # luna oberon
+	translation 76.2 -2.5 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["oberon.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Oberón_(satélite)"
+			description "Oberón"
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 -2.5 76.5,72 -2.5 72, 78 -2.5 0, 72 -2.5 -72 ,0 -2.5 -76.5, -72 -2.5 -72,-78 -2.5 0,-72 -2.5 72, 0 -2.5 76.5]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 110
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # Neptuno anillo
+	translation 80 0 0
+	rotation 0 1 0 0.4943 #28.32
+	children[
+		Shape{
+			appearance Appearance{
+				texture ImageTexture{ 
+					url["neptunoanillos.jpg"]
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 2.5
+			}
+				
+		}
+	  DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 80,76 0 76, 82 0 0, 76 0 -76 ,0 0 -76, -76 0 -76,-82 0 0,-76 0 76, 0 0 80]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 200
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # neptuno
+	translation 80 0 0
+	rotation 0 1 0 0.4943 #28.32
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["neptuno.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 1.6
+				}
+			}
+			url"https://www.astromia.com/solar/neptuno.htm"
+			description "Neptuno"			
+		}
+	 DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 80,76 0 76, 82 0 0, 76 0 -76 ,0 0 -76, -76 0 -76,-82 0 0,-76 0 76, 0 0 80]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 200
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+
+DEF tr Transform{ # luna Tritón
+	translation 80 -2 0
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["triton.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Tritón_(satélite)"
+			description "Tritón"
+		}
+	    DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 -2 80,76 -2 76, 82 -2 0, 76 -2 -76 ,0 -2 -76, -76 -2 -76,-82 -2 0,-76 -2 76, 0 -2 80]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 200
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation
+DEF tr Transform{ # plutón 
+	translation 90 0 0
+	rotation 0 1 0 2.0944 #120°
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["pluton.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.5
+				}
+			}
+			url"https://www.astromia.com/solar/plutonmas.htm"
+			description "Plutón"
+		}
+	 DEF oi OrientationInterpolator {
+			key [ 0 0.5 1 ]
+			keyValue [ 0 1 0 0, 0 1 0 3.14, 0 1 0 6.28 ]
+		}
+		
+		DEF ts TimeSensor {
+			cycleInterval 11
+			loop TRUE
+		}
+	    DEF ci PositionInterpolator {
+			key      [ 0       0.125   0.25   0.375   0.5    0.625     0.75   0.875   1 ]
+			keyValue [ 0 0 90,86 0 86, 92 0 0, 86 0 -86 ,0 0 -86, -86 0 -86,-92 0 0,-86 0 86, 0 0 90]
+		} 	
+		DEF ts TimeSensor {
+			cycleInterval 236
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation 
+ROUTE ts.fraction_changed TO ci.set_fraction
+ROUTE ci.value_changed TO tr.set_translation

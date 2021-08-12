@@ -1,0 +1,118 @@
+#VRML V2.0 utf8
+Transform{ # Saturno anillo
+	translation 60 0 -3
+	rotation 0 0 0 0
+	children[
+		Shape{
+			appearance Appearance{
+				texture ImageTexture{ 
+					url["anillo.jpg"]
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 4
+			}
+				
+		}
+	]
+}
+Transform{ # Saturno anillo negro
+	translation 60 0.002 -3
+	rotation 0 0 0 0
+	children[
+		Shape{
+			appearance Appearance{
+				material Material{ 
+					diffuseColor 0 0 0
+				}
+			}
+			geometry Cylinder{
+				height 0.06
+				radius 2.5
+			}
+				
+		}
+	]
+}
+Transform{ # Saturno
+	translation 60 0 -3
+	rotation 0 0 0 0
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["saturno.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 2.3
+				}
+				
+			}
+			url"https://www.astromia.com/solar/saturno.htm"
+			description "Saturno"
+		}
+	]
+}
+Transform{ # luna Titan
+	translation 61.3 3 -3
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["titan.png"]
+					}
+				}
+				geometry Sphere{
+					radius 0.30
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Titán_(satélite)"
+			description "Titán"
+		}
+	]
+}
+Transform{ # luna Iapetus
+	translation 60 0.2 3
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["iapetus.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Jápeto_(satélite)"
+			description "Iapetus"
+		}
+	]
+}
+Transform{ # luna Pandora
+	translation 60 -1 2
+	rotation 0 1 0 0.7854 #45° en radianes
+	children[
+		Anchor{
+			children Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["pandora.jpg"]
+					}
+				}
+				geometry Sphere{
+					radius 0.25
+				}
+			}
+			url"https://es.wikipedia.org/wiki/Pandora_(satélite)"
+			description "Pandora"
+		}
+	]
+}

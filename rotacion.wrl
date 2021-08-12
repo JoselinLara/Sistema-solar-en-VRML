@@ -1,0 +1,35 @@
+#VRML V2.0 utf8
+
+Background {
+	frontUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	backUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	topUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	bottomUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	rightUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+	leftUrl "700_FO20268177_793df1f4da6d2ceb603e91d501e7cb91.jpg"
+}
+DEF tr Transform{ # sol
+children[
+		 Shape{
+				appearance Appearance{
+					texture ImageTexture{ 
+						url["sol.jpg"]
+					}
+				}
+				geometry Sphere{
+				}
+						
+			}
+
+		DEF oi OrientationInterpolator{
+			key [0 0.5 0]
+			keyValue[1 1.0 0 0.0,0 1.0 0 3.14 ,1 0 0 0.628]		
+		}
+		DEF ts TimeSensor{
+			cycleInterval 2
+			loop TRUE
+		}
+	]
+}
+ROUTE ts.fraction_changed TO oi.set_fraction
+ROUTE oi.value_changed TO tr.set_rotation
